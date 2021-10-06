@@ -3,6 +3,29 @@
 {% block content %}
 <h1 align="center">{% block header %}Transactions{% endblock %}</h1>
     {% if transactions %}
-    <h3 align="center"><strong>ACCESS CODE: </strong>{{ transactions }}</h3>
+{#            <h3 align="center"><strong>ACCESS CODE: </strong>{{ transactions.descriptions }}</h3>#}
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Date</th>
+              <th scope="col">Transaction Description</th>
+              <th scope="col">Amount</th>
+              <th scope="col">Currency</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for transaction in transactions %}
+            <tr>
+
+              <th scope="row">{{ loop.index }}</th>
+              <td>{{ transaction.dates.booked }}</td>
+              <td>{{ transaction.descriptions.display }}</td>
+              <td>{{ transaction.amount.value.scale }}</td>
+              <td>{{ transaction.amount.currencyCode }}</td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
     {% endif %}
 {% endblock %}
