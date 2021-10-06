@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-    {% block title %}TASK-1: Transactions{% endblock %}
+    {% block title %}TASK-2{% endblock %}
 {% block content %}
 <h1 align="center">{% block header %}Transactions{% endblock %}</h1>
     {% if transactions %}
@@ -7,10 +7,8 @@
           <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col">Date</th>
+              <th scope="col">Count</th>
               <th scope="col">Transaction Description</th>
-              <th scope="col">Amount</th>
-              <th scope="col">Currency</th>
             </tr>
           </thead>
           <tbody>
@@ -18,10 +16,8 @@
             <tr>
 
               <th scope="row">{{ loop.index }}</th>
-              <td>{{ transaction.dates.booked }}</td>
-              <td>{{ transaction.descriptions.display }}</td>
-              <td>{{ transaction.amount.value.scale }}</td>
-              <td>{{ transaction.amount.currencyCode }}</td>
+              <td>{{ transaction.count }}</td>
+              <td>{{ transaction.description }}</td>
             </tr>
           {% endfor %}
           </tbody>
